@@ -3,25 +3,14 @@ local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local Theme = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local Save = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
-if game.PlaceID == 116495829188952 then
-game.Players.LocalPlayer.Character.Head.CFrame = CFrame.new(38.231163024902344, 7.619999885559082, 146.59164428710938)
-wait(1)
-local args = {[1] = {["trainId"] = "default",["maxMembers"] = 1,["gameMode"] = "Normal"}}
-game:GetService("ReplicatedStorage").Shared.Network.RemoteEvent.CreateParty:FireServer(unpack(args))
-else
-
-
-
-
-
-
+if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 Library:Notify("YOUHUB\nĐang tải...")
 wait(1)
 Library:Notify("3")
 wait(1)
 Library:Notify("2")
 wait(1)
-Library:Notify("3")
+Library:Notify("1")
 wait(1)
 pcall(function()
     workspace.StreamingEnabled = false
@@ -39,13 +28,7 @@ local cyberseallChar      = cyberseallPlayer.Character or cyberseallPlayer.Chara
 local cyberseallHrp       = cyberseallChar:WaitForChild("HumanoidRootPart")
 local cyberseallHumanoid  = cyberseallChar:WaitForChild("Humanoid")
 
-local cyberseallExecutor  = "unknown"
-pcall(function()
-    if identifyexecutor then
-        cyberseallExecutor = identifyexecutor():lower()
-    end
-end)
-Library:Notify("Đang khởi động trên client:", cyberseallExecutor)
+Library:Notify("Đang khởi động trên client")
 
 local cyberseallSuccess, cyberseallQueueCandidate = pcall(function()
     return (syn and syn.queue_on_teleport)
@@ -117,10 +100,10 @@ local function cyberseallRecordBonds()
     end
 end
 local cyberseallScanTarget = CFrame.new(-424.448975, 26.055481, -49040.6562)
-local cyberseallScanSteps  = 100
+local cyberseallScanSteps  = 120
 for i = 1, cyberseallScanSteps do
     cyberseallHrp.CFrame = cyberseallHrp.CFrame:Lerp(cyberseallScanTarget, i/cyberseallScanSteps)
-    task.wait(0.25)
+    task.wait(0.2)
     cyberseallRecordBonds()
     task.wait(0.1)
 end
@@ -144,7 +127,7 @@ local cyberseallSeatWorks = (cyberseallHumanoid.SeatPart == cyberseallSeat)
 
 for index, cyberseallEntry in ipairs(cyberseallBondData) do
 if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-Library:Notify(("--- Tiền Tệ (Bond) : %d/%d ---"):format(index, #cyberseallBondData))
+Library:Notify(("Đã Tiền Tệ (Bond) : %d/%d"):format(index, #cyberseallBondData))
 end
 local targetPos = cyberseallEntry.pos + Vector3.new(0, 2, 0)
 if cyberseallSeatWorks then
