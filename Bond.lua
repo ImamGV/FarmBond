@@ -63,7 +63,7 @@ end
 function Bond()
 for _, v in ipairs(workspace:GetDescendants()) do
 if v.Name == "Bond" then
-if (v.Part.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 25 then
+if (v.Part.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 30 then
 local args = {
     [1] = v
 }
@@ -74,7 +74,7 @@ end
 end
 end
 end
-game:GetService("RunService").RenderStepped:Connect(function()
+while true do
 Bond()
 wait()
 end)
