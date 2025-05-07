@@ -4,7 +4,7 @@ local Theme = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local Save = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
 if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-Library:Notify("YOUHUB\nĐang tải...")
+Library:Notify("YOUHUB | CÀY BOND\nĐang tải...")
 wait(1)
 Library:Notify("3")
 wait(1)
@@ -74,9 +74,11 @@ end
 end
 end
 end
+task.spawn(function()
 while true do
 Bond()
 wait()
+end
 end)
 
 local cyberseallBondData = {}
@@ -100,15 +102,15 @@ local function cyberseallRecordBonds()
     end
 end
 local cyberseallScanTarget = CFrame.new(-424.448975, 26.055481, -49040.6562)
-local cyberseallScanSteps  = 120
+local cyberseallScanSteps  = 50
 for i = 1, cyberseallScanSteps do
     cyberseallHrp.CFrame = cyberseallHrp.CFrame:Lerp(cyberseallScanTarget, i/cyberseallScanSteps)
-    task.wait(0.2)
+    task.wait(0.35)
     cyberseallRecordBonds()
-    task.wait(0.1)
+    task.wait(0.15)
 end
 cyberseallHrp.CFrame = cyberseallScanTarget
-task.wait(0.1)
+task.wait(0.5)
 cyberseallRecordBonds()
 
 print(("→ %d Tiền Tệ (Bond) đã tìm thấy!"):format(#cyberseallBondData))
