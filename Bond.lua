@@ -105,9 +105,9 @@ local cyberseallScanTarget = CFrame.new(-424.448975, 26.055481, -49040.6562)
 local cyberseallScanSteps  = 50
 for i = 1, cyberseallScanSteps do
     cyberseallHrp.CFrame = cyberseallHrp.CFrame:Lerp(cyberseallScanTarget, i/cyberseallScanSteps)
-    task.wait(0.35)
+    task.wait(0.3)
     cyberseallRecordBonds()
-    task.wait(0.15)
+    task.wait(0.1)
 end
 cyberseallHrp.CFrame = cyberseallScanTarget
 task.wait(0.5)
@@ -124,7 +124,7 @@ assert(cyberseallChair and cyberseallChair:FindFirstChild("VehicleSeat"), "Chair
 local cyberseallSeat = cyberseallChair.VehicleSeat
 
 cyberseallSeat:Sit(cyberseallHumanoid)
-task.wait(0.2)
+task.wait(0.25)
 local cyberseallSeatWorks = (cyberseallHumanoid.SeatPart == cyberseallSeat)
 
 for index, cyberseallEntry in ipairs(cyberseallBondData) do
@@ -134,14 +134,14 @@ end
 local targetPos = cyberseallEntry.pos + Vector3.new(0, 2, 0)
 if cyberseallSeatWorks then
 cyberseallSeat:PivotTo(CFrame.new(targetPos))
-task.wait(0.1)
+task.wait(0.5)
 if cyberseallHumanoid.SeatPart ~= cyberseallSeat then
 cyberseallSeat:Sit(cyberseallHumanoid)
-task.wait(0.1)
+task.wait(0.25)
 end
 else
 cyberseallHrp.CFrame = CFrame.new(targetPos)
-task.wait(0.1)
+task.wait(0.2)
 end
 task.wait(0.5)
 end
