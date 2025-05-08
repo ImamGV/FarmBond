@@ -4,7 +4,7 @@ local Theme = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local Save = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
 wait(3)
-Library:Notify("Đã tải xong/nVN | CÀY BOND SIÊU NGON")
+Library:Notify("Đã tải xong\nSCRIPT BY VN | CÀY TRÁI PHIẾU (BOND)")
 for _,v in ipairs(workspace:GetDescendants()) do
 if v.Parent.Name == "ConductorSeat" and v.Name == "VehicleSeat" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
