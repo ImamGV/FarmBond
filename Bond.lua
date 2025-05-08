@@ -2,150 +2,103 @@ local repo = 'https://raw.githubusercontent.com/mstudio45/LinoriaLib/main/'
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local Theme = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local Save = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-
-if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-Library:Notify("YOUHUB | CÀY BOND\nĐang tải...")
-wait(1)
-Library:Notify("3")
-wait(1)
-Library:Notify("2")
-wait(1)
-Library:Notify("1")
-wait(1)
-pcall(function()
-    workspace.StreamingEnabled = false
-    if workspace:FindFirstChild("SimulationRadius") then
-        workspace.SimulationRadius = 999999
-    end
+Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
+wait(3)
+Library:Notify("Đã tải xong/nVN | CÀY BOND SIÊU NGON")
+for _,v in ipairs(workspace:GetDescendants()) do
+if v.Parent.Name == "ConductorSeat" and v.Name == "VehicleSeat" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+end
+end
+wait(2)
+game:GetService("RunService").Stepped:Connect(function()
+if game.Players.LocalPlayer and game.Players.LocalPlayer.Character then
+for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+if part:IsA("BasePart") then
+part.CanCollide = false
+end
+end
+end
 end)
-
-local Players             = game:GetService("Players")
-local ReplicatedStorage   = game:GetService("ReplicatedStorage")
-local WorkspaceService    = game:GetService("Workspace")
-
-local cyberseallPlayer    = Players.LocalPlayer
-local cyberseallChar      = cyberseallPlayer.Character or cyberseallPlayer.CharacterAdded:Wait()
-local cyberseallHrp       = cyberseallChar:WaitForChild("HumanoidRootPart")
-local cyberseallHumanoid  = cyberseallChar:WaitForChild("Humanoid")
-
-Library:Notify("Đang khởi động trên client")
-
-local cyberseallSuccess, cyberseallQueueCandidate = pcall(function()
-    return (syn and syn.queue_on_teleport)
-        or queue_on_teleport
-        or (fluxus and fluxus.queue_on_teleport)
-end)
-local cyberseallQueueOnTp = cyberseallSuccess and cyberseallQueueCandidate or function(...) end
-
-local cyberseallRemotesRoot1        = ReplicatedStorage:WaitForChild("Remotes")
-local cyberseallRemotePromiseFolder = ReplicatedStorage
-    :WaitForChild("Shared")
-    :WaitForChild("Network")
-    :WaitForChild("RemotePromise")
-local cyberseallRemotesRoot2        = cyberseallRemotePromiseFolder:WaitForChild("Remotes")
-
-local cyberseallEndDecisionRemote   = cyberseallRemotesRoot1:WaitForChild("EndDecision")
-
-local cyberseallHasPromise = true
-local cyberseallRemotePromiseMod
-do
-    local ok, mod = pcall(function()
-        return require(cyberseallRemotePromiseFolder)
-    end)
-    if ok and mod then
-        cyberseallRemotePromiseMod = mod
-    else
-        cyberseallHasPromise = false
-        -- Remote Promise dont vaild
-    end
+local Char = game.Players.LocalPlayer.Character
+	local Cam = workspace.CurrentCamera
+	local Pos = Cam.CFrame
+	local Human = Char and Char.FindFirstChildWhichIsA(Char, "Humanoid")
+	local nHuman = Human.Clone(Human)
+	nHuman.Parent = Char, nil
+	nHuman.SetStateEnabled(nHuman, 15, false)
+	nHuman.SetStateEnabled(nHuman, 1, false)
+	nHuman.SetStateEnabled(nHuman, 0, false)
+	nHuman.BreakJointsOnDeath, Human = true, Human.Destroy(Human)
+nHuman.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+local Script = Char.FindFirstChild(Char, "Animate")
+if Script then
+Script.Disabled = true
+wait()
+Script.Disabled = false
 end
-
-function Bond()
-for _, v in ipairs(workspace:GetDescendants()) do
-if v.Name == "Bond" then
-if (v.Part.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 30 then
-local args = {
-    [1] = v
-}
-
-game:GetService("ReplicatedStorage").Shared.Network.RemotePromise.Remotes.C_ActivateObject:FireServer(unpack(args))
-print("Collect")
-end
-end
-end
-end
-task.spawn(function()
+nHuman.Health = nHuman.MaxHealth
+spawn(function()
 while true do
-Bond()
+workspace.StreamingEnabled = false
+if workspace:FindFirstChild("SimulationRadius") then
+workspace.SimulationRadius = 999999
+end
 wait()
 end
 end)
+local part = Instance.new("Part", workspace)
+part.Anchored = true
+part.Material = "Neon"
+part.Transparency = 1
+part.Size = Vector3.new(1000,0.1,1000)
+wait(2)
+function Tween(Pos)
+Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/1500, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+tween:Play()
+TweenPart = true
+spawn(function()
+while TweenPart do
+part.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y + 0.25, game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)
+wait()
+end
+end)
+if Distance <= 50 then
+tween:Cancel()
+TweenPart = false
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+end
+wait()
+if workspace.RuntimeItems:FindFirstChild("Bond") then
+tween:Cancel()
+end
+end
+function Bond()
+for _, v in ipairs(workspace.RuntimeItems:GetChildren()) do
+if workspace.RuntimeItems:FindFirstChild("Bond") and v.Name == "Bond" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(v.Part.Position.X, v.Part.Position.Y + 3, v.Part.Position.Z)
+if (v:FindFirstChild("Part").Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 25 then
+local args = {[1] = v}
+game:GetService("ReplicatedStorage").Shared.Network.RemotePromise.Remotes.C_ActivateObject:FireServer(unpack(args))
+end
+end
+end
+end
+game:GetService("RunService").RenderStepped:Connect(function()
+if workspace.RuntimeItems:FindFirstChild("Bond") then
+Bond()
+end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+if not workspace.RuntimeItems:FindFirstChild("Bond") and (CFrame.new(-381.25531005859375, 27.561323165893555, -49043.14453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 50 then
+Tween(CFrame.new(-381.25531005859375, 27.561323165893555, -49043.14453125))
+wait()
+end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+local args = {[1] = false}
+game:GetService("ReplicatedStorage").Remotes.EndDecision:FireServer(unpack(args))
+end)
 
-local cyberseallBondData = {}
-local cyberseallSeenKeys  = {}
-
-local function cyberseallRecordBonds()
-    local runtime = WorkspaceService:WaitForChild("RuntimeItems")
-    for _, item in ipairs(runtime:GetChildren()) do
-        if item.Name:match("Bond") then
-            local part = item.PrimaryPart or item:FindFirstChildWhichIsA("BasePart")
-            if part then
-                local key = ("%.1f_%.1f_%.1f"):format(
-                    part.Position.X, part.Position.Y, part.Position.Z
-                )
-                if not cyberseallSeenKeys[key] then
-                    cyberseallSeenKeys[key] = true
-                    table.insert(cyberseallBondData, { item = item, pos = part.Position })
-                end
-            end
-        end
-    end
-end
-local cyberseallScanTarget = CFrame.new(-424.448975, 26.055481, -49040.6562)
-local cyberseallScanSteps  = 50
-for i = 1, cyberseallScanSteps do
-    cyberseallHrp.CFrame = cyberseallHrp.CFrame:Lerp(cyberseallScanTarget, i/cyberseallScanSteps)
-    task.wait(0.3)
-    cyberseallRecordBonds()
-    task.wait(0.1)
-end
-cyberseallHrp.CFrame = cyberseallScanTarget
-task.wait(0.5)
-cyberseallRecordBonds()
-
-print(("→ %d Tiền Tệ (Bond) đã tìm thấy!"):format(#cyberseallBondData))
-if #cyberseallBondData == 0 then
-Library:Notify("Không Tìm Thầy Tiền Tệ (Bond)")
-return
-end
-
-local cyberseallChair = WorkspaceService:WaitForChild("RuntimeItems"):FindFirstChild("MaximGun")
-assert(cyberseallChair and cyberseallChair:FindFirstChild("VehicleSeat"), "Chair.Seat not found")
-local cyberseallSeat = cyberseallChair.VehicleSeat
-
-cyberseallSeat:Sit(cyberseallHumanoid)
-task.wait(0.25)
-local cyberseallSeatWorks = (cyberseallHumanoid.SeatPart == cyberseallSeat)
-
-for index, cyberseallEntry in ipairs(cyberseallBondData) do
-if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-Library:Notify(("Đã Tiền Tệ (Bond) : %d/%d"):format(index, #cyberseallBondData))
-end
-local targetPos = cyberseallEntry.pos + Vector3.new(0, 2, 0)
-if cyberseallSeatWorks then
-cyberseallSeat:PivotTo(CFrame.new(targetPos))
-task.wait(0.5)
-if cyberseallHumanoid.SeatPart ~= cyberseallSeat then
-cyberseallSeat:Sit(cyberseallHumanoid)
-task.wait(0.25)
-end
-else
-cyberseallHrp.CFrame = CFrame.new(targetPos)
-task.wait(0.2)
-end
-task.wait(0.5)
-end
-cyberseallHumanoid:TakeDamage(999999)
-cyberseallEndDecisionRemote:FireServer(false)
-cyberseallQueueOnTp("By rechedmcvn")
-end
