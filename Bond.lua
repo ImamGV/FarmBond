@@ -6,7 +6,9 @@ Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
 wait(3)
 Library:Notify("Đã tải xong\nSCRIPT BY VIETNAM | CÀY TRÁI PHIẾU (BOND)")
 wait(0.5)
-Library:Notify("Script credits by:\nrechedmcvn\ndeivid_gv")
+Library:Notify("Script credits by:\nrechedmcvn làm bay và dịch chuyển\nAmngu làm bypass")
+wait(0.5)
+Library:Notify("Phiên bản : v0.0.1")
 for _,v in ipairs(workspace:GetDescendants()) do
 if v.Parent.Name == "ConductorSeat" and v.Name == "VehicleSeat" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
