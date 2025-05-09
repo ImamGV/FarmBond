@@ -6,15 +6,15 @@ Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
 wait(3)
 Library:Notify("Đã tải xong\nSCRIPT BY VIETNAM | CÀY TRÁI PHIẾU (BOND)")
 wait(0.5)
-Library:Notify("Script credits by:\nrechedmcvn làm bay và dịch chuyển\nAmngu làm bypass")
+Library:Notify("Script credits by:\n(OWNER)[YT] rechedmcvn : làm bay và dịch chuyển\n(OWNER) Amngu : làm bypass bay và tốc độ")
 wait(0.5)
-Library:Notify("Phiên bản : v0.0.1")
+Library:Notify("[BETA] Phiên bản : v0.0.1")
 for _,v in ipairs(workspace:GetDescendants()) do
 if v.Parent.Name == "ConductorSeat" and v.Name == "VehicleSeat" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
 end
 end
-wait(2)
+wait(1)
 game:GetService("RunService").Stepped:Connect(function()
 if game.Players.LocalPlayer and game.Players.LocalPlayer.Character then
 for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
@@ -56,7 +56,7 @@ part.Anchored = true
 part.Material = "Neon"
 part.Transparency = 1
 part.Size = Vector3.new(1000,0.1,1000)
-wait(2)
+wait(1)
 function Tween(Pos)
 Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
@@ -91,13 +91,11 @@ end
 end
 end
 game:GetService("RunService").RenderStepped:Connect(function()
-if workspace.RuntimeItems:FindFirstChild("Bond") then
 Bond()
-end
 end)
 game:GetService("RunService").RenderStepped:Connect(function()
-if not workspace.RuntimeItems:FindFirstChild("Bond") and (CFrame.new(-381.25531005859375, 27.561323165893555, -49043.14453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 50 then
-Tween(CFrame.new(-381.25531005859375, 27.561323165893555, -49043.14453125))
+if not workspace.RuntimeItems:FindFirstChild("Bond") and (CFrame.new(-381.3519287109375, -48.02812194824219, -49156.0546875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 50 then
+Tween(CFrame.new(-381.3519287109375, -48.02812194824219, -49156.0546875))
 wait()
 end
 end)
