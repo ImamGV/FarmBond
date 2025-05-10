@@ -3,8 +3,8 @@ local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local Theme = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local Save = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
-wait(1.5)
-Library:Notify("<font color='rgb(255,255,0)'>(OWNER) :</font>\n<font color='rgb(255,0,0)'>[YOUTUBER] : </font><font color='rgb(0,255,50)'>rechedmcvn (tạo dịch chuyển và bay) (create tp and tween fly)</font>\n<font color='rgb(255,0,255)'>[OTHER] : </font><font color='rgb(0,255,50)'>deivid_gv (tạo bypass tốc độ và bypass bay) (create bypass speed and bypass fly)</font>\n<font color='rgb(200,100,50)'>(YOUTUBER REVIEW) :</font>\n<font color='rgb(255,0,0)'>Không tìm thấy! (No found!)</font>", 60)
+wait(0.5)
+Library:Notify("<font color='rgb(255,255,0)'>(OWNER) :</font>\n<font color='rgb(255,0,0)'>[YOUTUBER] : </font><font color='rgb(0,255,50)'>rechedmcvn (tạo dịch chuyển và bay) (create tp and tween fly)</font>\n<font color='rgb(255,0,255)'>[OTHER] : </font><font color='rgb(0,255,50)'>deivid_gv (tạo bypass tốc độ và bypass bay) (create bypass speed and bypass fly)</font>\n<font color='rgb(200,100,50)'>(YOUTUBER REVIEW) :</font>\n<font color='rgb(255,0,0)'>Không tìm thấy! (No found!)</font>", 10)
 wait(0.5)
 Library:Notify("Script credits by:\n(OWNER)[YT] rechedmcvn : làm bay và dịch chuyển\n(OWNER) Amngu : làm bypass bay và tốc độ")
 wait(0.5)
@@ -15,15 +15,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
 end
 end
 wait(1)
-game:GetService("RunService").Stepped:Connect(function()
-if game.Players.LocalPlayer and game.Players.LocalPlayer.Character then
-for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-if part:IsA("BasePart") then
-part.CanCollide = false
-end
-end
-end
-end)
 local Char = game.Players.LocalPlayer.Character
 	local Cam = workspace.CurrentCamera
 	local Pos = Cam.CFrame
