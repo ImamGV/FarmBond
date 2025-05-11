@@ -6,15 +6,13 @@ Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
 wait(0.5)
 Library:Notify("<font color='rgb(255,255,0)'>(OWNER) :</font>\n<font color='rgb(255,0,0)'>[YOUTUBER] : </font><font color='rgb(0,255,50)'>rechedmcvn (tạo dịch chuyển và bay) (create tp and tween fly)</font>\n<font color='rgb(255,0,255)'>[OTHER] : </font><font color='rgb(0,255,50)'>deivid_gv (tạo bypass tốc độ và bypass bay) (create bypass speed and bypass fly)</font>\n<font color='rgb(200,100,50)'>(YOUTUBER REVIEW) :</font>\n<font color='rgb(255,0,0)'>Không tìm thấy! (No found!)</font>", 10)
 wait(0.5)
-Library:Notify("Script credits by:\n(OWNER)[YT] rechedmcvn : làm bay và dịch chuyển\n(OWNER) Amngu : làm bypass bay và tốc độ")
-wait(0.5)
-Library:Notify("[BETA] Phiên bản : v0.0.1")
+Library:Notify("<font color='rgb(255,255,0)'>[BETA]</font> Phiên bản : v0.0.1")
 for _,v in ipairs(workspace:GetDescendants()) do
 if v.Parent.Name == "ConductorSeat" and v.Name == "VehicleSeat" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
 end
 end
-wait(1)
+wait(0.5)
 local Char = game.Players.LocalPlayer.Character
 	local Cam = workspace.CurrentCamera
 	local Pos = Cam.CFrame
@@ -46,12 +44,19 @@ local part = Instance.new("Part", workspace)
 part.Anchored = true
 part.Material = "Neon"
 part.Transparency = 1
-part.Size = Vector3.new(1000,0.1,1000)
-wait(1)
+part.Size = Vector3.new(1000,1,1000)
+wait(0.5)
+if _G.FarmMode == "Fast" then
+_G.Tween = "2750"
+elseif _G.FarmMode == "Normal" then
+_G.Tween = "1800"
+elseif _G.FarmMode == "Low" then
+_G.Tween = "1250"
+end
 function Tween(Pos)
 Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/1500, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/_G.Tween or 1800, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
 tween:Play()
 TweenPart = true
 spawn(function()
