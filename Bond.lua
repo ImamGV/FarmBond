@@ -4,7 +4,7 @@ local Theme = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local Save = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 Library:Notify("YOUHUB | CÀY TRÁI PHIẾU (BOND)\nĐang tải dữ liệu...")
 wait(0.5)
-Library:Notify("<font color='rgb(255,255,0)'>(OWNER) :</font>\n<font color='rgb(255,0,0)'>[YOUTUBER] : </font><font color='rgb(0,255,50)'>rechedmcvn (tạo dịch chuyển và bay) (create tp and tween fly)</font>\n<font color='rgb(255,0,255)'>[OTHER] : </font><font color='rgb(0,255,50)'>deivid_gv (tạo bypass tốc độ và bypass bay) (create bypass speed and bypass fly)</font>\n<font color='rgb(200,100,50)'>(YOUTUBER REVIEW) :</font>\n<font color='rgb(255,0,0)'>Không tìm thấy! (No found!)</font>", 10)
+Library:Notify("<font color='rgb(255,255,0)'>(OWNER) :</font>\n<font color='rgb(255,0,0)'>[YOUTUBER] : </font><font color='rgb(0,255,50)'>rechedmcvn (tạo dịch chuyển và bay) (create tp and tween fly)</font>\n<font color='rgb(255,0,255)'>[OTHER] : </font><font color='rgb(0,255,50)'>deivid_gv (tạo bypass tốc độ và bypass bay) (create bypass speed and bypass fly)</font>\n<font color='rgb(200,100,50)'>(YOUTUBER REVIEW) :</font>\n<font color='rgb(255,0,0)'>Không tìm thấy! (No found!)</font>", 60)
 wait(0.5)
 Library:Notify("<font color='rgb(255,255,0)'>[BETA]</font> Phiên bản : v0.0.1")
 for _,v in ipairs(workspace:GetDescendants()) do
@@ -47,11 +47,11 @@ part.Transparency = 1
 part.Size = Vector3.new(1000,1,1000)
 wait(0.5)
 if _G.FarmMode == "Fast" then
-_G.Tween = "2750"
+_G.Tween = "3000"
 elseif _G.FarmMode == "Normal" then
-_G.Tween = "1800"
+_G.Tween = "2000"
 elseif _G.FarmMode == "Low" then
-_G.Tween = "1250"
+_G.Tween = "1000"
 end
 function Tween(Pos)
 Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
