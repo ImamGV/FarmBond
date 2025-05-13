@@ -1,0 +1,374 @@
+local repo = 'https://raw.githubusercontent.com/mstudio45/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+local Options = Library.Options
+local Toggles = Library.Toggles
+Library.ShowToggleFrameInKeybinds = true 
+Library.ShowCustomCursor = true
+Library.NotifySide = "Right"
+
+local Window = Library:CreateWindow({
+	Title = 'YOUHUB | Grow A Garden | Alpha v.0.0.1 ',
+	Center = true,
+	AutoShow = true,
+	Resizable = true,
+	ShowCustomCursor = true,
+	NotifySide = "Right",
+	TabPadding = 8,
+	MenuFadeTime = 0
+})
+
+local Tabs = {
+	Main = Window:AddTab('Main')
+}
+local SeedShop = Tabs.Main:AddLeftGroupbox("Seed Shop")
+function BuySeed(name)
+local args = {[1] = name}
+game:GetService("ReplicatedStorage").GameEvents.BuySeedStock:FireServer(unpack(args))
+end
+function AddPrice(Name, Price)
+SeedShop:AddLabel(Name .. " Price : " .. Price .. "$")
+end
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Carrot Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyCarrotSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyCarrotSeed then
+BuySeed("Carrot")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Strawberry Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyStrawberrySeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyStrawberrySeed then
+BuySeed("Strawberry")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Blueberry Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyBlueberrySeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyBlueberrySeed then
+BuySeed("Blueberry")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Orange Tulip Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyOrangeTulipSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyOrangeTulipSeed then
+BuySeed("Orange Tulip")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Tomato Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyTomatoSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyTomatoSeed then
+BuySeed("Tomato")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Corn Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyCornSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyCornSeed then
+BuySeed("Corn")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Daffodil Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyDaffodilSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyDaffodilSeed then
+BuySeed("Daffodil")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Watermelon Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyWatermelonSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyWatermelonSeed then
+BuySeed("Watermelon")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Pumpkin Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyPumpkinSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyPumpkinSeed then
+BuySeed("Pumpkin")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Apple Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyAppleSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyAppleSeed then
+BuySeed("Apple")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Bamboo Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyBambooSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyBambooSeed then
+BuySeed("Bamboo")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Coconut Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyCoconutSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyCoconutSeed then
+BuySeed("Coconut")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Cactus Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyCactusSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyCactusSeed then
+BuySeed("Cactus")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Dragon Fruit Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyDragonFruitSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyDragonFruitSeed then
+BuySeed("Dragon Fruit")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Mango Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyMangoSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyMangoSeed then
+BuySeed("Mango")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Grape Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyGrapeSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyGrapeSeed then
+BuySeed("Grape")
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Mushroom Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyMushroomSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyMushroomSeed then
+BuySeed("Mushroom")
+end
+end)
+end})
+SeedShop:AddDivider()
+function SellInventory()
+if (workspace.NPCS.Steven.Head.Position - game.Players.LocalPlayer.Character.Head.Position).Magnitude <= 30 then
+game:GetService("ReplicatedStorage").GameEvents.Sell_Inventory:FireServer()
+end
+end
+function SellItemHold()
+if (workspace.NPCS.Steven.Head.Position - game.Players.LocalPlayer.Character.Head.Position).Magnitude < 30 then
+game:GetService("ReplicatedStorage").GameEvents.Sell_Item:FireServer()
+end
+end
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Sell Inventory Near",
+Default = false,
+Callback = function(v)
+_G.AutoSellInventoryNear = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoSellInventoryNear then
+SellInventory()
+end
+end)
+end})
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Sell Item Hold Near",
+Default = false,
+Callback = function(v)
+_G.AutoSellItemHoldNear = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoSellItemHoldNear then
+SellItemHold()
+end
+end)
+end})
+
+local EventGearShop = Tabs.Main:AddRightGroupbox("Angry Plant Event")
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Transaction Near",
+Default = false,
+Callback = function(v)
+_G.AutoTransactionNear = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoTransactionNear and (workspace.SeedPack.JimTheFlytrap.Model.Base.Head.Position - game.Players.LocalPlayer.Character.Head.Position).Magnitude < 30 then
+local args = {
+    [1] = "SubmitHeldPlant"
+}
+
+game:GetService("ReplicatedStorage").GameEvents.SeedPackGiverEvent:FireServer(unpack(args))
+end
+end)
+end})
+EventGearShop:AddButton("Teleport - Talk Angry Plant",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.SeedPack.JimTheFlytrap.Model.Base.Head.CFrame
+wait(0.3)
+fireproximityprompt(workspace.SeedPack.JimTheFlytrap.Model.Base.Head.ProximityPrompt)
+end)
+EventGearShop:AddDivider()
+EventGearShop:AddLabel("Gear Shop")
+function BuySprinkler(name)
+local args = {
+    [1] = name
+}
+
+game:GetService("ReplicatedStorage").GameEvents.BuyGearStock:FireServer(unpack(args))
+end
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Watering Can",
+Default = false,
+Callback = function(v)
+_G.AutoBuyWateringCan = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyWateringCan then
+BuySprinkler("Watering Can")
+end
+end)
+end})
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Trowel",
+Default = false,
+Callback = function(v)
+_G.AutoBuyTrowel = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyTrowel then
+BuySprinkler("Trowel")
+end
+end)
+end})
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Basic Sprinkler",
+Default = false,
+Callback = function(v)
+_G.AutoBuyBasicSprinkler = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyBasicSprinkler then
+BuySprinkler("Basic Sprinkler")
+end
+end)
+end})
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Advanced Sprinkler",
+Default = false,
+Callback = function(v)
+_G.AutoBuyAdvancedSprinkler = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyAdvancedSprinkler then
+BuySprinkler("Advanced Sprinkler")
+end
+end)
+end})
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Godly Sprinkler",
+Default = false,
+Callback = function(v)
+_G.AutoBuyGodlySprinkler = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyGodlySprinkler then
+BuySprinkler("Godly Sprinkler")
+end
+end)
+end})
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Lightning Rod",
+Default = false,
+Callback = function(v)
+_G.AutoBuyLightningRod = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyLightningRod then
+BuySprinkler("Lightning Rod")
+end
+end)
+end})
+EventGearShop:AddToggle("MyToggle",{
+Text = "Auto Buy Master Sprinkler",
+Default = false,
+Callback = function(v)
+_G.AutoBuyMasterSprinkler = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyWMasterSprinkler then
+BuySprinkler("Master Sprinkler")
+end
+end)
+end})
+EventGearShop:AddDivider()
+EventGearShop:AddButton("Seed UI",function()
+game.Players.LocalPlayer.PlayerGui.Seed_Shop.Enabled = not game.Players.LocalPlayer.PlayerGui.Seed_Shop.Enabled
+end)
+EventGearShop:AddButton("Gear UI",function()
+game.Players.LocalPlayer.PlayerGui.Gear_Shop.Enabled = not game.Players.LocalPlayer.PlayerGui.Gear_Shop.Enabled
+end)
+EventGearShop:AddButton("Basic Seed Ratio UI",function()
+game:GetService("Players").LocalPlayer.PlayerGui.FreeSeedSack_UI.Enabled = not game:GetService("Players").LocalPlayer.PlayerGui.FreeSeedSack_UI.Enabled
+end)
+EventGearShop:AddButton("Daily Quest UI",function()
+game.Players.LocalPlayer.PlayerGui.DailyQuests_UI.Enabled = not game.Players.LocalPlayer.PlayerGui.DailyQuests_UI.Enabled
+end)
