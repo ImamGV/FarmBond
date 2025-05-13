@@ -28,9 +28,10 @@ function BuySeed(name)
 local args = {[1] = name}
 game:GetService("ReplicatedStorage").GameEvents.BuySeedStock:FireServer(unpack(args))
 end
-function AddPrice(Name, Price)
+function AddPriceSeedShop(Name, Price)
 SeedShop:AddLabel(Name .. " Price : " .. Price .. "$")
 end
+AddPriceSeedShop("Carrot", "10")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Carrot Seed",
 Default = false,
@@ -42,6 +43,8 @@ BuySeed("Carrot")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Strawberry", "50")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Strawberry Seed",
 Default = false,
@@ -53,6 +56,8 @@ BuySeed("Strawberry")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Blueberry", "400")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Blueberry Seed",
 Default = false,
@@ -64,6 +69,8 @@ BuySeed("Blueberry")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Orange Tulip", "600")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Orange Tulip Seed",
 Default = false,
@@ -75,6 +82,8 @@ BuySeed("Orange Tulip")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Tomato", "800")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Tomato Seed",
 Default = false,
@@ -86,6 +95,8 @@ BuySeed("Tomato")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Corn", "1,300")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Corn Seed",
 Default = false,
@@ -97,6 +108,8 @@ BuySeed("Corn")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Daffodil", "1,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Daffodil Seed",
 Default = false,
@@ -108,6 +121,8 @@ BuySeed("Daffodil")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Watermelon", "2,500")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Watermelon Seed",
 Default = false,
@@ -119,6 +134,8 @@ BuySeed("Watermelon")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Pumpkin", "3,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Pumpkin Seed",
 Default = false,
@@ -130,6 +147,8 @@ BuySeed("Pumpkin")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Apple", "3,250")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Apple Seed",
 Default = false,
@@ -141,6 +160,8 @@ BuySeed("Apple")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Bamboo", "4,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Bamboo Seed",
 Default = false,
@@ -152,6 +173,8 @@ BuySeed("Bamboo")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Coconut", "6,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Coconut Seed",
 Default = false,
@@ -163,6 +186,8 @@ BuySeed("Coconut")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Cactus", "15,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Cactus Seed",
 Default = false,
@@ -174,8 +199,10 @@ BuySeed("Cactus")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Dragon", "30,000")
 SeedShop:AddToggle("MyToggle",{
-Text = "Auto Buy Dragon Fruit Seed",
+Text = "Auto Buy Dragon Seed",
 Default = false,
 Callback = function(v)
 _G.AutoBuyDragonFruitSeed = v
@@ -185,6 +212,8 @@ BuySeed("Dragon Fruit")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Mango", "100,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Mango Seed",
 Default = false,
@@ -196,6 +225,8 @@ BuySeed("Mango")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Grape", "850,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Grape Seed",
 Default = false,
@@ -207,6 +238,8 @@ BuySeed("Grape")
 end
 end)
 end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Mushroom", "150,000")
 SeedShop:AddToggle("MyToggle",{
 Text = "Auto Buy Mushroom Seed",
 Default = false,
@@ -215,6 +248,32 @@ _G.AutoBuyMushroomSeed = v
 game:GetService("RunService").RenderStepped:Connect(function()
 if _G.AutoBuyMushroomSeed then
 BuySeed("Mushroom")
+end
+end)
+end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Pepper", "1,000,000")
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Pepper Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyPepperSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyPepperSeed then
+BuySeed("Pepper")
+end
+end)
+end})
+SeedShop:AddDivider()
+AddPriceSeedShop("Cacao", "2,500,000")
+SeedShop:AddToggle("MyToggle",{
+Text = "Auto Buy Cacao Seed",
+Default = false,
+Callback = function(v)
+_G.AutoBuyCacaoSeed = v
+game:GetService("RunService").RenderStepped:Connect(function()
+if _G.AutoBuyCacaoSeed then
+BuySeed("Cacao")
 end
 end)
 end})
