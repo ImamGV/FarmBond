@@ -7,12 +7,8 @@ wait(0.5)
 Library:Notify("<font color='rgb(255,255,0)'>(OWNER) :</font>\n<font color='rgb(255,0,0)'>[YOUTUBER] : </font><font color='rgb(0,255,50)'>rechedmcvn (tạo dịch chuyển và bay) (create tp and tween fly)</font>\n<font color='rgb(255,0,255)'>[OTHER] : </font><font color='rgb(0,255,50)'>deivid_gv (tạo bypass tốc độ và bypass bay) (create bypass speed and bypass fly)</font>\n<font color='rgb(200,100,50)'>(YOUTUBER REVIEW) :</font>\n<font color='rgb(255,0,0)'>Không tìm thấy! (No found!)</font>", 60)
 wait(0.5)
 Library:Notify("<font color='rgb(255,255,0)'>[BETA]</font> Phiên bản : v0.0.1")
-for _,v in ipairs(workspace:GetDescendants()) do
-if v.Parent.Name == "ConductorSeat" and v.Name == "VehicleSeat" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-wait(0.5)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ImamGV/Script/refs/heads/main/TP/Castle"))()
+wait(1.5)
 local Char = game.Players.LocalPlayer.Character
 	local Cam = workspace.CurrentCamera
 	local Pos = Cam.CFrame
@@ -37,6 +33,7 @@ part.Material = "Neon"
 part.Transparency = 1
 part.Size = Vector3.new(1000,1,1000)
 wait(1)
+
 if _G.FarmMode == "Fast" then
 _G.Tween = "3000"
 elseif _G.FarmMode == "Normal" then
