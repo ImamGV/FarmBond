@@ -31,21 +31,12 @@ wait()
 Script.Disabled = false
 end
 nHuman.Health = nHuman.MaxHealth
-spawn(function()
-while true do
-workspace.StreamingEnabled = false
-if workspace:FindFirstChild("SimulationRadius") then
-workspace.SimulationRadius = 999999
-end
-wait()
-end
-end)
 local part = Instance.new("Part", workspace)
 part.Anchored = true
 part.Material = "Neon"
 part.Transparency = 1
 part.Size = Vector3.new(1000,1,1000)
-wait(0.5)
+wait(1)
 if _G.FarmMode == "Fast" then
 _G.Tween = "3000"
 elseif _G.FarmMode == "Normal" then
